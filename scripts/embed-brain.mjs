@@ -1,0 +1,1 @@
+import fs from'node:fs';const[input,output]=process.argv.slice(2);if(!input||!output)throw Error('Usage: node scripts/embed-brain.mjs <new.glb> <new.embedded.js>');if(fs.existsSync(output))throw Error('Preserve prior embedded version: '+output);fs.writeFileSync(output,"window.MTW_BRAIN_GLB='data:model/gltf-binary;base64,"+fs.readFileSync(input).toString('base64')+"';\n");

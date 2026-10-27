@@ -7,8 +7,7 @@ wireframe, the vertex nodes and the region lighting itself, so the export is
 geometry only. Deterministic (seeded). Object names: Brain, Cerebellum, Stem.
 
 Run from the repository root:
-  "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -b --factory-startup \
-     -P samples/work-field/blender/brain_build.py -- C:/Code/MTWWebsite/samples/work-field/assets
+  blender -b --factory-startup -P blender/brain_build.py -- assets/versions/v2
 """
 import bpy, bmesh, math, os, sys, random
 from mathutils import Vector, noise
