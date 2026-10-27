@@ -1,0 +1,2 @@
+import fs from'node:fs';import path from'node:path';
+const root=path.resolve(import.meta.dirname,'..'),out=path.join(root,'dist');fs.mkdirSync(out,{recursive:true});for(const name of ['index.html','asset-review.html','reading.html','assets','css','fonts','images','js','vendor'])if(fs.existsSync(path.join(root,name)))fs.cpSync(path.join(root,name),path.join(out,name),{recursive:true});console.log('Static build: dist');

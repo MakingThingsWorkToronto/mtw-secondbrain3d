@@ -1,0 +1,35 @@
+/* Three.js scenes (practice pages) and shared scene chrome. Filled in per scene. */
+.scene-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.scene-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+.stage[data-webgl="off"] .scene-poster { display: block; }
+.stage[data-webgl="off"] .scene-canvas { display: none; }
+.scene-holder { min-height: 320px; }
+
+/* Annotations projected from world positions */
+.annotations { position: absolute; inset: 0; pointer-events: none; z-index: 3; overflow: hidden; }
+.anno {
+  position: absolute; left: 0; top: 0; transform: translate(-9999px, -9999px);
+  padding: 6px 10px; max-width: 260px; text-wrap: balance;
+  background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-sm);
+  backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); box-shadow: var(--shadow-sm);
+  font: 500 12px/1.35 var(--font-mono); color: var(--paper);
+  opacity: 0; transition: opacity .35s var(--ease-beat); will-change: transform;
+  translate: -50% -50%;
+}
+.anno[data-on="true"] { opacity: 1; }
+.anno.big { font: 700 18px/1.1 var(--font-display); padding: 8px 12px; }
+.anno.left { translate: 0 -50%; }
+.anno.warn { border-color: color-mix(in srgb, var(--warning) 70%, transparent); color: var(--warning); }
+.anno.role { font: 600 13px/1.2 var(--font-body); }
+.stage .annotations .anno { pointer-events: none; }
+
+.anno.right { translate: -100% -50%; }
+.anno.above { translate: -50% -100%; }
+.anno.left.above { translate: 0 -100%; }
+.anno.below { translate: 0 0; }
+.anno.rule { max-width: 232px; }
+.anno.card { display: flex; flex-direction: column; gap: 3px; font: 500 12px/1.35 var(--font-body); max-width: 240px; }
+.anno.card .owner { font: 500 11px/1.3 var(--font-mono); color: var(--brand-teal-light); }
+.anno.sel { border-color: var(--brand-teal-light); color: var(--brand-teal-light); }
+.stage-controls[data-beat="1"] .ctl-context, .stage-controls[data-beat="2"] .ctl-context, .stage-controls[data-beat="7"] .ctl-context, .stage-controls[data-beat="8"] .ctl-context { display: none; }
+.stage-controls:not([data-beat="7"]) .ctl-role { display: none; }
